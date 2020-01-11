@@ -77,7 +77,7 @@ class App extends React.Component {
           return;
         });
 
-      axios.get(`https://recommender-server.herokuapp.com/?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`https://recommender-server.herokuapp.com/histories?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
         .then(res => {
             // console.log(res)
             this.setState({
