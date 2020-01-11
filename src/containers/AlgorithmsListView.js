@@ -10,7 +10,7 @@ class AlgorithmsList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8000/algorithms/')
+        axios.get('https://recommender-server.herokuapp.com/algorithms/')
         .then(res => {
             this.setState({
                 algorithms: res.data

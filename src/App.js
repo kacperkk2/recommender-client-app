@@ -53,7 +53,7 @@ class App extends React.Component {
         errorMessage: ''
       })
 
-      axios.get(`http://localhost:8000/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`https://recommender-server.herokuapp.com/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
         .then(res => {
             // console.log(res)
             this.setState({
@@ -77,7 +77,7 @@ class App extends React.Component {
           return;
         });
 
-      axios.get(`http://localhost:8000/histories/?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`https://recommender-server.herokuapp.com/?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
         .then(res => {
             // console.log(res)
             this.setState({
