@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/recommender/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/recommender/static/js/main.761ffdc2.chunk.js",
-    "main.js.map": "/recommender/static/js/main.761ffdc2.chunk.js.map",
-    "runtime-main.js": "/recommender/static/js/runtime-main.e772a01a.js",
-    "runtime-main.js.map": "/recommender/static/js/runtime-main.e772a01a.js.map",
-    "static/css/2.bea6f0b1.chunk.css": "/recommender/static/css/2.bea6f0b1.chunk.css",
-    "static/js/2.2a04c729.chunk.js": "/recommender/static/js/2.2a04c729.chunk.js",
-    "static/js/2.2a04c729.chunk.js.map": "/recommender/static/js/2.2a04c729.chunk.js.map",
-    "index.html": "/recommender/index.html",
-    "precache-manifest.cb1c9e7bdca06bc387a0c7e21cf68b4d.js": "/recommender/precache-manifest.cb1c9e7bdca06bc387a0c7e21cf68b4d.js",
-    "service-worker.js": "/recommender/service-worker.js",
-    "static/css/2.bea6f0b1.chunk.css.map": "/recommender/static/css/2.bea6f0b1.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/recommender/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.2a04c729.chunk.js.LICENSE": "/recommender/static/js/2.2a04c729.chunk.js.LICENSE"
+    "main.css": "/recommender-client-app/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/recommender-client-app/static/js/main.6819faae.chunk.js",
+    "main.js.map": "/recommender-client-app/static/js/main.6819faae.chunk.js.map",
+    "runtime-main.js": "/recommender-client-app/static/js/runtime-main.bac160f8.js",
+    "runtime-main.js.map": "/recommender-client-app/static/js/runtime-main.bac160f8.js.map",
+    "static/css/2.bea6f0b1.chunk.css": "/recommender-client-app/static/css/2.bea6f0b1.chunk.css",
+    "static/js/2.5f8ac6b7.chunk.js": "/recommender-client-app/static/js/2.5f8ac6b7.chunk.js",
+    "static/js/2.5f8ac6b7.chunk.js.map": "/recommender-client-app/static/js/2.5f8ac6b7.chunk.js.map",
+    "index.html": "/recommender-client-app/index.html",
+    "precache-manifest.03cc3a88026255db7ac467f3b9b0e0d0.js": "/recommender-client-app/precache-manifest.03cc3a88026255db7ac467f3b9b0e0d0.js",
+    "service-worker.js": "/recommender-client-app/service-worker.js",
+    "static/css/2.bea6f0b1.chunk.css.map": "/recommender-client-app/static/css/2.bea6f0b1.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/recommender-client-app/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.5f8ac6b7.chunk.js.LICENSE": "/recommender-client-app/static/js/2.5f8ac6b7.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.e772a01a.js",
+    "static/js/runtime-main.bac160f8.js",
     "static/css/2.bea6f0b1.chunk.css",
-    "static/js/2.2a04c729.chunk.js",
+    "static/js/2.5f8ac6b7.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.761ffdc2.chunk.js"
+    "static/js/main.6819faae.chunk.js"
   ]
 }
