@@ -5,10 +5,12 @@ const columns = [
     {
       title: 'Name',
       dataIndex: 'name',
+      render: (text, record) => <a href={'https://www.8a.nu/scorecard/Search.aspx?SearchType=ASCENTS&CragName=' + record.crag + '&AscentName=' + record.name} target="_blank" rel="noopener noreferrer">{text}</a>
     },
     {
       title: 'Crag',
       dataIndex: 'crag',
+      render: (text, record) => <a href={'https://www.8a.nu/scorecard/Search.aspx?Mode=SIMPLE&CragName=' + record.crag} target="_blank" rel="noopener noreferrer">{text}</a>
     },
     {
       title: 'Sector',
