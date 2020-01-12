@@ -9,7 +9,7 @@ class DataSetList extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://recommender-server.herokuapp.com/data_sets/')
+        axios.get('http://localhost:8000/data_sets/')
         .then(res => {
             this.setState({
                 dataSets: res.data

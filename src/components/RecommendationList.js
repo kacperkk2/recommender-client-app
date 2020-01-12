@@ -3,6 +3,10 @@ import { Table } from 'antd';
 
 const columns = [
     {
+      title: 'Rank',
+      dataIndex: 'rank',
+    },
+    {
       title: 'Name',
       dataIndex: 'name',
     },
@@ -14,9 +18,13 @@ const columns = [
       title: 'Sector',
       dataIndex: 'sector',
     },
+    {
+      title: 'Country code',
+      dataIndex: 'country',
+    },
 ];
 
-class PathsList extends React.Component {
+class RecommendationList extends React.Component {
 
     render() {
         return (
@@ -25,4 +33,4 @@ class PathsList extends React.Component {
     }
 }
 
-export default PathsList;
+export default RecommendationList;

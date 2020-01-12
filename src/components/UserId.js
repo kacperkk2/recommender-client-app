@@ -1,4 +1,5 @@
 import React from 'react';
+import TopK from './TopK';
 import { InputNumber, Button } from 'antd';
 
 
@@ -41,6 +42,8 @@ class UserId extends React.Component {
                 {this.getUsersIdSample()}
 
                 <InputNumber size='large' min={1} defaultValue={1} onChange={this.handleChange} />
+                <TopK topK={this.props.topK} pickedTopK={this.props.pickedTopK}/>
+                
 
                 <div style={{padding: '30px'}}>
                     <Button style={{ fontSize: '150%', justifyContent: 'center', display: 'flex', margin: '0 auto', height: '70px', width: '400px'}} type="default" onClick={this.userIdSubmit} disabled={this.isAlgorithmAndDataSetPicked()}>Click to get recommendations!</Button>

@@ -5,7 +5,8 @@ import { Row, Col } from 'antd';
 import AlgorithmList from './components/AlgorithmList';
 import DataSetList from './components/DataSetList';
 import UserId from './components/UserId';
-import PathsList from './components/PathsList';
+import RecommendationList from './components/RecommendationList';
+import HistoryList from './components/HistoryList';
 import AlertLabel from './components/AlertLabel';
 import axios from 'axios';
 
@@ -22,6 +23,7 @@ class App extends React.Component {
     pickedAlgorithm: {},
     pickedDataSet: {},
     pickedUserId: '',
+    topK: '10',
     recommendations: [],
     userHistory: [],
     errorMessage: ''
@@ -43,6 +45,13 @@ class App extends React.Component {
     })
   }
 
+  pickedTopK = (value) => {
+    // console.log(value)
+    this.setState({
+      topK: value
+    })
+  }
+
   userIdSubmit = (userIdInput) => {
     if(Object.getOwnPropertyNames(this.state.pickedAlgorithm).length !== 0 && 
     Object.getOwnPropertyNames(this.state.pickedDataSet).length !== 0) {
@@ -53,7 +62,8 @@ class App extends React.Component {
         errorMessage: ''
       })
 
-      axios.get(`https://recommender-server.herokuapp.com/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      // axios.get(`https://recommender-server.herokuapp.com/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`http://localhost:8000/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
         .then(res => {
             // console.log(res)
             this.setState({
@@ -77,7 +87,7 @@ class App extends React.Component {
           return;
         });
 
-      axios.get(`https://recommender-server.herokuapp.com/histories?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`http://localhost:8000/histories?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
         .then(res => {
             // console.log(res)
             this.setState({
@@ -99,7 +109,8 @@ class App extends React.Component {
               <DataSetList picked={this.state.pickedDataSet} pickedDataSet={this.pickedDataSet}/>
           
               <div style={labelStyle}> User id </div>
-              <UserId pickedDataSet={this.state.pickedDataSet} pickedAlgorithm={this.state.pickedAlgorithm} userIdSubmit={this.userIdSubmit} />
+              <UserId pickedDataSet={this.state.pickedDataSet} pickedAlgorithm={this.state.pickedAlgorithm} 
+                      userIdSubmit={this.userIdSubmit} topK={this.state.topK} pickedTopK={this.pickedTopK}/>
 
               {this.state.errorMessage ? <AlertLabel message={this.state.errorMessage}/> : null}
 
@@ -107,11 +118,11 @@ class App extends React.Component {
                 <Row gutter={[24, 16]}>
                   <Col xs={{ span: 24 }} lg={{ span: 12 }}>
                     <div style={labelStyle}> Recommendations list </div>
-                    <PathsList elements={this.state.recommendations}/>
+                    <RecommendationList elements={this.state.recommendations}/>
                   </Col>
                   <Col xs={{ span: 24 }} lg={{ span: 12 }}>
                     <div style={labelStyle}> User history </div>
-                    <PathsList elements={this.state.userHistory}/>
+                    <HistoryList elements={this.state.userHistory}/>
                   </Col>
                 </Row>
               </div>
