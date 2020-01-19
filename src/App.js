@@ -7,6 +7,7 @@ import DataSetList from './components/DataSetList';
 import UserIdTopK from './components/UserIdTopK';
 import RecommendationList from './components/RecommendationList';
 import HistoryList from './components/HistoryList';
+import Greetings from './components/Greetings';
 import AlertLabel from './components/AlertLabel';
 import axios from 'axios';
 
@@ -26,7 +27,14 @@ class App extends React.Component {
     topK: '10',
     recommendations: [],
     userHistory: [],
-    errorMessage: ''
+    errorMessage: '',
+    started: 0
+  }
+
+  switchToStarted = () => {
+    this.setState({
+      started: 1
+    })
   }
 
   pickedAlgorithm = (algorithm) => {
@@ -99,7 +107,13 @@ class App extends React.Component {
   }
 
   render() {
-      return (
+      if (!this.state.started) {
+        return(
+          <Greetings switchToStarted={this.switchToStarted}/>
+        )
+      }
+      else {
+        return (
           <div className="App" style={{padding: '20px', background: '#ECECEC'}}>
 
               <div style={labelStyle}> Algorithms </div>
@@ -126,7 +140,8 @@ class App extends React.Component {
                 </Row>
               </div>
           </div>
-      );
+        )
+      }
   }
 }
 
