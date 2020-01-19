@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Row, Col } from 'antd';
+import { Row, Col, notification } from 'antd';
 
 import AlgorithmList from './components/AlgorithmList';
 import DataSetList from './components/DataSetList';
@@ -96,6 +96,20 @@ class App extends React.Component {
         })
         .catch(err => console.log(err));
     }
+  }
+
+  componentDidMount() {
+    notification.open({
+      message: 'Welcome!',
+      description: 'Client app for recommender system for climbers provides results presentation. ' +
+      'Choose an algorithm and data set, enter user id and specify number of items in recommendation list. ' +
+      'Results will be presented as set of recommendations for a specified user.',
+      duration: 0,
+      // style: {
+      //   width: 600,
+      //   marginLeft: 250 - 600,
+      // },
+    });
   }
 
   render() {
