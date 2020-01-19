@@ -17,6 +17,10 @@ const columns = [
       dataIndex: 'sector',
     },
     {
+      title: 'Grade',
+      dataIndex: 'grade',
+    },
+    {
       title: 'Country code',
       dataIndex: 'country',
     },
