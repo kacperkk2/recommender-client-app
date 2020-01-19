@@ -1,9 +1,10 @@
 import React from 'react';
 import TopK from './TopK';
-import { InputNumber, Button } from 'antd';
+import { InputNumber, Button, Row, Col } from 'antd';
+import { labelStyle } from '../App.js'
 
 
-class UserId extends React.Component {
+class UserIdTopK extends React.Component {
 
     state = {
         userIdInput: '1'
@@ -38,15 +39,23 @@ class UserId extends React.Component {
 
     render() {
         return (
-            <div style={{padding: '5px', textAlign: 'center'}}>
-                {this.getUsersIdSample()}
-
-                <div style={{paddingBottom: '5px'}}>
-                    <InputNumber size='large' min={1} defaultValue={1} onChange={this.handleChange} />
-                </div>
-                <div style={{paddingTop: '5px'}}>
-                    <TopK topK={this.props.topK} pickedTopK={this.props.pickedTopK}/>
-                </div>
+            <div style={{textAlign: 'center'}}>
+                <Row gutter={[24, 0]}>
+                <Col xs={{ span: 24 }} lg={{ span: 12 }}>
+                    <div style={labelStyle}> User id </div>
+                    <div style={{padding: '5px', paddingBottom: '10px', textAlign: 'center'}}>
+                        {this.getUsersIdSample()}
+                        <InputNumber size='medium' min={1} defaultValue={1} onChange={this.handleChange} />
+                    </div>
+                </Col>
+                <Col xs={{ span: 24 }} lg={{ span: 12 }}>
+                    <div style={labelStyle}> Number of recommendations </div>
+                    <div style={{padding: '5px', textAlign: 'center'}}>
+                        <p> Will be presented {this.props.topK} most relevant items </p>
+                        <TopK topK={this.props.topK} pickedTopK={this.props.pickedTopK}/>
+                    </div>
+                </Col>
+                </Row>
 
                 <div style={{padding: '30px'}}>
                     <Button style={{ fontSize: '150%', justifyContent: 'center', display: 'flex', margin: '0 auto', height: '70px', width: '320px'}} type="default" onClick={this.userIdSubmit} disabled={this.isAlgorithmAndDataSetPicked()}>Click to get recommendations!</Button>
@@ -56,4 +65,4 @@ class UserId extends React.Component {
     }
 }
 
-export default UserId;
+export default UserIdTopK;

@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 
 import AlgorithmList from './components/AlgorithmList';
 import DataSetList from './components/DataSetList';
-import UserId from './components/UserId';
+import UserIdTopK from './components/UserIdTopK';
 import RecommendationList from './components/RecommendationList';
 import HistoryList from './components/HistoryList';
 import AlertLabel from './components/AlertLabel';
@@ -107,9 +107,8 @@ class App extends React.Component {
               
               <div style={labelStyle}> Data sets </div>
               <DataSetList picked={this.state.pickedDataSet} pickedDataSet={this.pickedDataSet}/>
-          
-              <div style={labelStyle}> User id </div>
-              <UserId pickedDataSet={this.state.pickedDataSet} pickedAlgorithm={this.state.pickedAlgorithm} 
+
+              <UserIdTopK pickedDataSet={this.state.pickedDataSet} pickedAlgorithm={this.state.pickedAlgorithm} 
                       userIdSubmit={this.userIdSubmit} topK={this.state.topK} pickedTopK={this.pickedTopK}/>
 
               {this.state.errorMessage ? <AlertLabel message={this.state.errorMessage}/> : null}
@@ -131,4 +130,5 @@ class App extends React.Component {
   }
 }
 
+export { labelStyle };
 export default App;
