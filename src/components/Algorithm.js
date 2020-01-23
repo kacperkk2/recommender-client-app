@@ -9,7 +9,9 @@ class Algorithm extends React.Component {
                 ? '#add8e6' : '#f4f4f4',
             padding: '10px',
             margin: '10px',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            minHeight: '300px',
+            wordWrap: 'break-word'
         }
     }
 
@@ -19,9 +21,10 @@ class Algorithm extends React.Component {
 
     render() {
         return (
-            <Card title={this.props.algorithm.name} style={this.elementStyle()} onClick={this.pickedAlgorithm} bordered={false} >
-                <p>Short name: {this.props.algorithm.short}</p>
-                <p>Description: {this.props.algorithm.link}</p>
+            <Card title={this.props.algorithm.name ? this.props.algorithm.name : this.props.algorithm.short}
+             style={this.elementStyle()} onClick={this.pickedAlgorithm} bordered={false} >
+                <p>{this.props.algorithm.description ? this.props.algorithm.description : "Recommender algorithm."}</p>
+                {this.props.algorithm.link ? <p>{this.props.algorithm.link}</p> : null}
             </Card>
         );
     }

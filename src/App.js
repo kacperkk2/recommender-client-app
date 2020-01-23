@@ -30,7 +30,6 @@ class App extends React.Component {
   }
 
   pickedAlgorithm = (algorithm) => {
-    // console.log(algorithm)
     this.setState({
       pickedAlgorithm: algorithm,
       errorMessage: ''
@@ -38,7 +37,6 @@ class App extends React.Component {
   }
 
   pickedDataSet = (dataSet) => {
-    // console.log(dataSet)
     this.setState({
       pickedDataSet: dataSet,
       errorMessage: ''
@@ -46,7 +44,6 @@ class App extends React.Component {
   }
 
   pickedTopK = (value) => {
-    // console.log(value)
     this.setState({
       topK: value
     })
@@ -62,10 +59,8 @@ class App extends React.Component {
         errorMessage: ''
       })
 
-      // axios.get(`https://recommender-server.herokuapp.com/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
-      axios.get(`https://recommender-server.herokuapp.com/results?alg=${this.state.pickedAlgorithm.short}&data=${this.state.pickedDataSet.name}&user_id=${userIdInput}&topK=${this.state.topK}`)
+      axios.get(`https://recommender-server.herokuapp.com/results?algorithm=${this.state.pickedAlgorithm.short}&data_set=${this.state.pickedDataSet.short}&user_id=${userIdInput}&top_k=${this.state.topK}`)
         .then(res => {
-            // console.log(res)
             this.setState({
               recommendations: res.data
             });
@@ -87,9 +82,8 @@ class App extends React.Component {
           return;
         });
 
-      axios.get(`https://recommender-server.herokuapp.com/histories?data=${this.state.pickedDataSet.name}&user_id=${userIdInput}`)
+      axios.get(`https://recommender-server.herokuapp.com/histories?data_set=${this.state.pickedDataSet.short}&user_id=${userIdInput}`)
         .then(res => {
-            // console.log(res)
             this.setState({
               userHistory: res.data
             });
@@ -105,10 +99,6 @@ class App extends React.Component {
       'Choose an algorithm and data set, enter user id and specify number of items in recommendation list. ' +
       'Results will be presented as set of recommendations for a specified user.',
       duration: 0,
-      // style: {
-      //   width: 600,
-      //   marginLeft: 250 - 600,
-      // },
     });
   }
 
